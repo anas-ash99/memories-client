@@ -46,11 +46,14 @@ export default function Auth() {
 
 
      useEffect(()=>{
-        // Axios.get("/users/getsers/").then(res =>{
-        //     console.log(res.data);
-        //     // console.log(res +  "asd");
-        // })
-        // console.log("test");
+    
+            const  user = JSON.parse(localStorage.getItem('profile'))?.user
+            Axios.post("/users/check_authentication", {token: JSON.parse(localStorage.getItem('profile'))?.jwt, userId: user?._id}).then(res=>{
+                if(res.data.message === true){
+                    history.push("/")
+                }
+            })
+     
      }, [])
 
     
