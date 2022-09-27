@@ -34,7 +34,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "memories-app"
   },
   "browserslist": {
     "production": [
