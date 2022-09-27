@@ -64,11 +64,11 @@ export default function Auth() {
     }
 
     const handleSignup = () =>{
-      var userExist = false
+
 
 
         if (user?.password === user?.confirmPassword) {
-            Axios.post("users/create_user/", user).then(res=>{
+            Axios.post("/users/create_user", user).then(res=>{
                 if(res.data.userExist == true){
                     alert("User already Exsit")
                 } else{
@@ -82,8 +82,8 @@ export default function Auth() {
         
     }
     const handleSignin = () =>{
-        var userExist = false
-        var userObj = {}
+  
+    
         Axios.post("/users/sign_in", {email: user.email, password: user.password}).then(res=>{
             
             if (res.data.auth == false) {
